@@ -1,5 +1,6 @@
-"use client";
 
+"use client";
+export const runtime = 'edge';
 import { useState, useEffect, use } from 'react';
 import dictionaries from '../../i18n/dictionaries.json';
 
