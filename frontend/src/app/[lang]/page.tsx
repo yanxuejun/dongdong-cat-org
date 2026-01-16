@@ -29,119 +29,109 @@ export default function DongDongPage({ params }: { params: Promise<{ lang: strin
       setAiMsg(lang === 'zh' ? "喵～" : "Meow~");
     } finally {
       setLoadingAi(false);
-      setTimeout(() => setAiMsg(""), 5000);
+      setTimeout(() => setAiMsg(""), 4000);
     }
   };
 
   return (
-    <main className="min-h-screen bg-[#FDFDFF] text-slate-800 transition-all duration-700 relative overflow-x-hidden">
-      {/* 柔和背景装饰 */}
-      <div className="absolute top-[-5%] left-[-5%] w-[50%] h-[50%] bg-purple-100/40 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-[5%] right-[-5%] w-[40%] h-[40%] bg-blue-100/30 rounded-full blur-[80px] pointer-events-none"></div>
+    <main className="h-screen w-full bg-[#FDFDFF] text-slate-800 relative overflow-hidden flex flex-col">
+      {/* 背景装饰 - 调淡以保持清爽 */}
+      <div className="absolute top-[-5%] left-[-5%] w-[40%] h-[40%] bg-purple-100/30 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-[5%] right-[-5%] w-[30%] h-[30%] bg-blue-100/20 rounded-full blur-[80px] pointer-events-none"></div>
 
-      {/* 顶部导航 - 修正为冬冬 */}
-      <nav className="fixed top-0 w-full flex justify-between px-8 py-6 md:px-16 md:py-10 z-40 items-center">
-        <span className="font-black tracking-tight text-xl md:text-2xl text-purple-600">
+      {/* 1. 顶部导航 - 压缩垂直内边距 */}
+      <nav className="flex justify-between items-center px-8 py-4 md:px-12 md:py-6 z-40 shrink-0">
+        <span className="font-black tracking-tight text-lg md:text-xl text-purple-600">
           DONGDONGCAT<span className="text-slate-300">.ORG</span>
         </span>
-        <div className="flex gap-8 font-bold text-sm">
-          <a href="/zh" className={lang === 'zh' ? 'text-purple-600 border-b-2 border-purple-600 pb-1' : 'text-slate-400 hover:text-purple-400 transition-colors'}>中文</a>
-          <a href="/en" className={lang === 'en' ? 'text-purple-600 border-b-2 border-purple-600 pb-1' : 'text-slate-400 hover:text-purple-400 transition-colors'}>EN</a>
+        <div className="flex gap-6 font-bold text-xs uppercase">
+          <a href="/zh" className={lang === 'zh' ? 'text-purple-600 border-b-2 border-purple-600' : 'text-slate-400 hover:text-purple-400'}>中文</a>
+          <a href="/en" className={lang === 'en' ? 'text-purple-600 border-b-2 border-purple-600' : 'text-slate-400 hover:text-purple-400'}>EN</a>
         </div>
       </nav>
 
-      {/* 访客编号 - 增大字号并增强对比 */}
-      <div className="fixed bottom-10 left-8 md:left-12 z-50 bg-white/80 backdrop-blur-xl border border-purple-100 px-6 py-3 rounded-2xl shadow-xl shadow-purple-100/30 flex items-center gap-3">
-        <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
-        <p className="font-mono text-sm tracking-tight text-slate-600 font-bold uppercase">
-          {lang === 'zh' ? '第' : 'VISITOR NO.'} <span className="text-purple-600 text-xl font-black mx-1">{visitorId || '...'}</span> {lang === 'zh' ? '位访客' : ''}
-        </p>
-      </div>
+      {/* 2. 主体内容 - 自动分配剩余空间并居中 */}
+      <section className="flex-1 flex flex-col items-center justify-center px-6 min-h-0 relative">
 
-      <section className="relative flex flex-col items-center justify-center min-h-screen pt-32 pb-24 px-6 max-w-5xl mx-auto">
-
-        {/* 头像与 AI 气泡 */}
-        <div className="relative mb-12 group">
+        {/* 头像区 - 略微缩小并根据屏幕调整 */}
+        <div className="relative mb-6 md:mb-8 shrink-0">
           {aiMsg && (
-            <div className="absolute -top-28 left-1/2 -translate-x-1/2 w-72 bg-white text-slate-700 p-5 rounded-[2rem] text-lg font-bold shadow-2xl border border-purple-50 animate-in slide-in-from-bottom-4 duration-300 z-30">
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-60 bg-white text-slate-700 p-3 rounded-2xl text-sm font-bold shadow-xl border border-purple-50 animate-in fade-in zoom-in duration-300 z-30 text-center">
               {aiMsg}
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-5 h-5 bg-white rotate-45 border-r border-b border-purple-50"></div>
+              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-r border-b border-purple-50"></div>
             </div>
           )}
 
           <div
             onClick={handleAiChat}
-            className={`w-52 h-52 md:w-64 md:h-64 rounded-[3rem] overflow-hidden cursor-pointer shadow-[0_20px_50px_rgba(168,85,247,0.15)] border-[8px] border-white transition-all duration-500 hover:scale-105 active:scale-95 ${loadingAi ? 'ring-8 ring-purple-100 opacity-80' : ''}`}
+            className={`w-40 h-40 md:w-52 md:h-52 rounded-[2.5rem] overflow-hidden cursor-pointer shadow-2xl border-[5px] border-white transition-all hover:scale-105 active:scale-95 ${loadingAi ? 'ring-4 ring-purple-100 opacity-80' : ''}`}
           >
-            <img src="/dongdong.jpg" className="w-full h-full object-cover" alt="英国长毛猫冬冬" />
+            <img src="/dongdong.webp" className="w-full h-full object-cover" alt="冬冬" />
           </div>
         </div>
 
-        {/* 标题 - 调整比例 */}
-        <div className="text-center space-y-4 mb-14">
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-tight uppercase">
+        {/* 标题与描述 - 紧凑型布局 */}
+        <div className="text-center space-y-2 mb-6 shrink-0">
+          <h1 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">
             {lang === 'zh' ? '你好，我是冬冬' : "Hi, I'm DongDong"}
           </h1>
-          <p className="text-lg md:text-xl text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed italic">
+          <p className="text-sm md:text-base text-slate-400 font-medium max-w-md mx-auto italic">
             {dict.description}
           </p>
         </div>
 
-        {/* 冬冬档案卡片 */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 w-full mb-16">
+        {/* 档案卡片 - 移动端 2x2, 电脑端 4x1 */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 w-full max-w-3xl mb-8 shrink-0">
           {Object.entries(dict.info).map(([key, value], index) => (
-            <div key={key} className="bg-white/70 backdrop-blur-md border border-white p-6 rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center group">
-              <p className="text-[10px] md:text-xs uppercase font-black text-purple-300 tracking-[0.2em] mb-2 group-hover:text-purple-500 transition-colors">
+            <div key={key} className="bg-white/70 backdrop-blur-sm border border-white p-3 md:p-4 rounded-2xl shadow-sm hover:shadow-md transition-all text-center">
+              <p className="text-[9px] uppercase font-black text-purple-300 tracking-widest mb-0.5">
                 {dict.labels[index]}
               </p>
-              <p className="text-sm md:text-lg font-bold text-slate-700">{value as string}</p>
+              <p className="text-xs md:text-sm font-bold text-slate-600 truncate">{value as string}</p>
             </div>
           ))}
         </div>
 
         {/* 交互按钮 */}
-        <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-          <a href="mailto:mama@dongdongcat.org" className="px-14 py-5 rounded-2xl bg-slate-900 text-white font-bold text-lg hover:bg-purple-600 transition-all shadow-xl shadow-slate-200 text-center uppercase tracking-widest">
+        <div className="flex gap-4 w-full justify-center shrink-0">
+          <a href="mailto:mama@dongdongcat.org" className="px-8 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-purple-600 transition-all shadow-lg text-center uppercase tracking-widest">
             {dict.contact_btn}
           </a>
-          <button onClick={() => setShowPay(true)} className="px-14 py-5 rounded-2xl bg-white text-purple-600 border-2 border-purple-100 font-bold text-lg hover:border-purple-300 transition-all shadow-sm text-center uppercase tracking-widest">
+          <button onClick={() => setShowPay(true)} className="px-8 py-3 rounded-xl bg-white text-purple-600 border border-purple-100 font-bold text-sm hover:border-purple-300 transition-all shadow-sm text-center uppercase tracking-widest">
             {dict.support_btn}
           </button>
         </div>
       </section>
 
-      {/* 底部版权与联系方式 */}
-      <footer className="py-16 text-center space-y-4">
-        {/* 邮箱地址 */}
-        <div className="flex flex-col items-center gap-2">
-          <a
-            href="mailto:mama@dongdongcat.org"
-            className="group flex items-center gap-2 text-slate-400 hover:text-purple-600 transition-colors duration-300"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce">
-              <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-            <span className="text-xs font-bold tracking-widest font-mono">MAMA@DONGDONGCAT.ORG</span>
-          </a>
+      {/* 3. 底部与访客 - 合并在一栏以节省空间 */}
+      <footer className="px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4 shrink-0 bg-white/10">
+        <div className="flex items-center gap-3 bg-white/80 border border-purple-50 px-4 py-1.5 rounded-full shadow-sm">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <p className="font-mono text-[10px] font-bold text-slate-500">
+            {lang === 'zh' ? '第' : 'VISITOR'} <span className="text-purple-600 text-sm">{visitorId || '...'}</span> {lang === 'zh' ? '位访客' : ''}
+          </p>
         </div>
 
-        {/* 版权信息 */}
-        <div className="text-slate-300 text-[10px] font-black tracking-[0.4em] uppercase">
-          © 2026 DONGDONGCAT.ORG | ALL RIGHTS RESERVED
+        <div className="flex flex-col items-center md:items-end gap-1">
+          <a href="mailto:mama@dongdongcat.org" className="text-[9px] font-black text-slate-400 hover:text-purple-600 transition-colors tracking-widest">
+            MAMA@DONGDONGCAT.ORG
+          </a>
+          <p className="text-[8px] font-black text-slate-200 tracking-[0.3em] uppercase">
+            © 2026 DONGDONGCAT.ORG | ALL RIGHTS RESERVED
+          </p>
         </div>
       </footer>
 
-      {/* 打赏弹窗保持之前逻辑... */}
+      {/* 收款弹窗 - 逻辑保持不变 */}
       {showPay && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/20 backdrop-blur-xl p-6">
-          <div className="bg-white rounded-[3rem] p-10 max-w-sm w-full text-center shadow-2xl relative">
-            <button onClick={() => setShowPay(false)} className="absolute top-6 right-8 text-slate-300 hover:text-slate-600 text-4xl font-thin transition-transform hover:rotate-90">×</button>
-            <h2 className="text-xl font-black mb-8 text-slate-800">{dict.support_title}</h2>
-            <div className="bg-slate-50 p-6 rounded-[2.5rem] relative group border border-slate-100">
-              <div className="absolute top-0 left-0 w-full h-1 bg-purple-500/20 animate-scan"></div>
-              <img src="/wechat-pay.webp" className="w-full rounded-2xl" />
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/20 backdrop-blur-md p-6 animate-in fade-in duration-300">
+          <div className="bg-white rounded-[2.5rem] p-8 max-w-xs w-full text-center shadow-2xl relative">
+            <button onClick={() => setShowPay(false)} className="absolute top-4 right-6 text-slate-300 hover:text-slate-600 text-3xl font-thin">×</button>
+            <h2 className="text-lg font-black mb-6 text-slate-800 tracking-tight">{dict.support_title}</h2>
+            <div className="bg-slate-50 p-4 rounded-3xl relative border border-slate-100">
+              <img src="/wechat-pay.webp" className="w-full rounded-2xl" alt="Pay" />
             </div>
-            <p className="mt-8 text-slate-400 font-bold uppercase tracking-widest text-[10px]">{dict.wechat}</p>
+            <p className="mt-6 text-slate-400 font-bold uppercase tracking-widest text-[9px]">{dict.wechat}</p>
           </div>
         </div>
       )}
