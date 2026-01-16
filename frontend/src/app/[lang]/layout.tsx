@@ -1,18 +1,20 @@
+// src/app/[lang]/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../globals.css"; // 确保你在 src/app 下有这个文件，或者删掉这行
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// 动态设置网页标题和描述（SEO）
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+// 修复 Metadata 生成
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ lang: string }> 
+}): Promise<Metadata> {
   const { lang } = await params;
   return {
     title: lang === 'zh' ? "东东 - 官方主页" : "DongDong - Official Site",
     description: "Welcome to DongDong the cat's digital world.",
-    icons: {
-      icon: "/favicon.ico", // 记得在 public 放一个猫爪图标
-    }
   };
 }
 
@@ -21,13 +23,13 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>; // 关键修复：改为 Promise
 }) {
-  const { lang } = await params;
+  const { lang } = await params; // 关键修复：必须 await
 
   return (
-    <html lang={lang} className="scroll-smooth">
-      <body className={`${inter.className} antialiased bg-[#050505]`}>
+    <html lang={lang}>
+      <body className={`${inter.className} bg-[#050505] antialiased`}>
         {children}
       </body>
     </html>
