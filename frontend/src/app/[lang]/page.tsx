@@ -110,9 +110,25 @@ export default function DongDongPage({ params }: { params: Promise<{ lang: strin
         </div>
       </section>
 
-      {/* 底部版权 */}
-      <footer className="py-12 text-center text-[10px] font-black tracking-[0.3em] text-slate-200 uppercase">
-        © 2026 DONGDONGCAT.ORG | Dedicated to my lovely Prince
+      {/* 底部版权与联系方式 */}
+      <footer className="py-16 text-center space-y-4">
+        {/* 邮箱地址 */}
+        <div className="flex flex-col items-center gap-2">
+          <a
+            href="mailto:mama@dongdongcat.org"
+            className="group flex items-center gap-2 text-slate-400 hover:text-purple-600 transition-colors duration-300"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:animate-bounce">
+              <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span className="text-xs font-bold tracking-widest font-mono">MAMA@DONGDONGCAT.ORG</span>
+          </a>
+        </div>
+
+        {/* 版权信息 */}
+        <div className="text-slate-300 text-[10px] font-black tracking-[0.4em] uppercase">
+          © 2026 DONGDONGCAT.ORG | ALL RIGHTS RESERVED
+        </div>
       </footer>
 
       {/* 打赏弹窗保持之前逻辑... */}
