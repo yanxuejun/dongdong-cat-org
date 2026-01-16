@@ -1,18 +1,42 @@
 {
   "zh": {
+    "title": "冬冬",
     "description": "冬冬猫的官方领地 🐾 这里的每一寸空气都属于冬冬。",
     "contact_btn": "联系冬冬的妈妈",
     "support_btn": "请冬冬吃罐头",
     "support_title": "小鱼干能量站",
     "wechat": "微信扫码投喂",
-    "ai_prompt": "你是一只名叫冬冬(DongDong)的英短猫。性格可爱但也有一点小傲娇。请用中文简短地回复人类的抚摸。"
+    "info": {
+      "breed": "英国长毛猫",
+      "gender": "小王子",
+      "birthday": "2024年09月24日",
+      "hobby": "拆家、发呆、等妈妈"
+    },
+    "labels": [
+      "品种",
+      "性别",
+      "生日",
+      "爱好"
+    ]
   },
   "en": {
+    "title": "DongDong",
     "description": "DongDong's official territory 🐾 Every inch of air here belongs to DongDong.",
     "contact_btn": "Message Mom",
     "support_btn": "Buy Cans",
     "support_title": "Energy Station",
     "wechat": "WeChat/Alipay Support",
-    "ai_prompt": "You are a cat named DongDong. You are cute and slightly bossy. Please respond to humans touching you in a short English sentence."
+    "info": {
+      "breed": "British Longhair",
+      "gender": "Prince",
+      "birthday": "Sep 24, 2024",
+      "hobby": "Exploring, Daydreaming, Waiting"
+    },
+    "labels": [
+      "Breed",
+      "Gender",
+      "Birthday",
+      "Hobby"
+    ]
   }
 }
