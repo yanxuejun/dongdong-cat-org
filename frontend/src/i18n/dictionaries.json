@@ -1,16 +1,18 @@
 {
   "zh": {
-    "description": "专业卖萌，兼职拆家 / 宇宙一级宇航猫",
-    "contact_btn": "给东东留言",
-    "support_btn": "投喂罐头",
-    "support_title": "能量补给站",
-    "wechat": "微信支付"
+    "description": "冬冬猫的官方领地 🐾 这里的每一寸空气都属于冬冬。",
+    "contact_btn": "联系冬冬的妈妈",
+    "support_btn": "请冬冬吃罐头",
+    "support_title": "小鱼干能量站",
+    "wechat": "微信扫码投喂",
+    "ai_prompt": "你是一只名叫冬冬(DongDong)的英短猫。性格可爱但也有一点小傲娇。请用中文简短地回复人类的抚摸。"
   },
   "en": {
-    "description": "Professional cutie, part-time troublemaker",
-    "contact_btn": "Message Me",
-    "support_btn": "Buy a Can",
-    "support_title": "Energy Refill",
-    "wechat": "WeChat Pay"
+    "description": "DongDong's official territory 🐾 Every inch of air here belongs to DongDong.",
+    "contact_btn": "Message Mom",
+    "support_btn": "Buy Cans",
+    "support_title": "Energy Station",
+    "wechat": "WeChat/Alipay Support",
+    "ai_prompt": "You are a cat named DongDong. You are cute and slightly bossy. Please respond to humans touching you in a short English sentence."
   }
 }
