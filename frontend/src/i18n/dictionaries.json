@@ -1,0 +1,16 @@
+{
+  "zh": {
+    "description": "专业卖萌，兼职拆家 / 宇宙一级宇航猫",
+    "contact_btn": "给东东留言",
+    "support_btn": "投喂罐头",
+    "support_title": "能量补给站",
+    "wechat": "微信支付"
+  },
+  "en": {
+    "description": "Professional cutie, part-time troublemaker",
+    "contact_btn": "Message Me",
+    "support_btn": "Buy a Can",
+    "support_title": "Energy Refill",
+    "wechat": "WeChat Pay"
+  }
+}
