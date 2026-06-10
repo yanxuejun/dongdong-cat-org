@@ -17,7 +17,82 @@
       "性别",
       "生日",
       "爱好"
-    ]
+    ],
+    "story": {
+      "hero": {
+        "overline": "2024年9月24日 · 一只毛球的诞生",
+        "title": "冬冬的成长史",
+        "subtitle": "从手掌大小到拆家担当，一只英国长毛猫的奇幻旅程",
+        "scroll": "向下滚动，走进冬冬的故事"
+      },
+      "chapters": [
+        {
+          "id": "arrival",
+          "date": "2024年10月",
+          "age": "第1个月",
+          "title": "那一天，冬冬来了",
+          "body": "在一个普通的秋日傍晚，一只黑白相间的小毛球钻进了车里。他睁着圆溜溜的眼睛，打量着这个陌生的世界。那天起，冬冬有了家，妈妈有了冬冬。",
+          "image_captions": ["第一次见面", "新家的第一个夜晚"]
+        },
+        {
+          "id": "trust",
+          "date": "2024年11月",
+          "age": "第2个月",
+          "title": "第一次信任",
+          "body": "从航空箱里的紧张，到四脚朝天躺在妈妈腿上的放松——冬冬花了整整一周才让肚皮朝上。那是他送给妈妈的第一份礼物：毫无保留的信任。",
+          "image_captions": ["最安心的姿势", "一只手就能捧住"]
+        },
+        {
+          "id": "explorer",
+          "date": "2024年12月",
+          "age": "第3个月",
+          "title": "新世界的探险家",
+          "body": "桌子的每一寸平面都是待征服的领土，每一件小物件都值得用爪子试探。冬冬的探险原则很简单：先上去，再思考怎么下来。",
+          "image_captions": ["桌面是我的", "视察领地"]
+        },
+        {
+          "id": "mischief",
+          "date": "2025年1月",
+          "age": "第4个月",
+          "title": "捣蛋鬼与撒娇精",
+          "body": "前一秒还在搞破坏被抓个正着，下一秒就窝进怀里打呼噜。冬冬深谙猫生哲学：只要够可爱，就没有犯下的错。",
+          "image_captions": ["犯罪现场", "撒娇模式 ON"]
+        },
+        {
+          "id": "expressions",
+          "date": "2025年2月",
+          "age": "第5个月",
+          "title": "行走的表情包",
+          "body": "张嘴是惊讶，眯眼是嫌弃，歪头是好奇——冬冬的脸是一部连续剧，每一帧都值得截图。据说有姨姨专门为了他的表情收藏了这个页面。",
+          "image_captions": ["震惊冬冬", "端庄冬冬"]
+        },
+        {
+          "id": "playtime",
+          "date": "2025年3月",
+          "age": "第6个月",
+          "title": "猫抓板战士",
+          "body": "猫抓板不只是磨爪工具，更是冬冬的健身器材、情绪出口和艺术品。每一个被挠坏的角落，都是冬冬存在过的证明。",
+          "image_captions": ["战斗姿态", "沙发上的明星"]
+        },
+        {
+          "id": "today",
+          "date": "2025年至今",
+          "age": "现在",
+          "title": "冬冬的今天",
+          "body": "他还是会在妈妈腿上四脚朝天，还是会为了一只飞蛾扑上窗帘，还是会在每个傍晚守在门口等那个熟悉的脚步声。只是现在，需要更多的毛巾才能把裹住这个大毛球了。",
+          "image_captions": ["还是那只宝宝", "已然是大佬"]
+        }
+      ],
+      "epilogue": {
+        "title": "故事还在继续…",
+        "body": "冬冬今天也在好好长大。欢迎常来看他，或者——",
+        "cta_support": "请他吃罐罐",
+        "cta_chat": "和冬冬打个招呼",
+        "visitor_prefix": "你是第",
+        "visitor_suffix": "位来看冬冬的朋友",
+        "footer": "© 2026 DONGDONGCAT.ORG"
+      }
+    }
   },
   "en": {
     "title": "DongDong",
@@ -37,6 +112,81 @@
       "Gender",
       "Birthday",
       "Hobby"
-    ]
+    ],
+    "story": {
+      "hero": {
+        "overline": "Sep 24, 2024 · A Furry Ball Was Born",
+        "title": "The Story of DongDong",
+        "subtitle": "From palm-sized to chaos commander, a British Longhair's incredible journey",
+        "scroll": "Scroll down to enter DongDong's world"
+      },
+      "chapters": [
+        {
+          "id": "arrival",
+          "date": "October 2024",
+          "age": "Month 1",
+          "title": "The Day DongDong Arrived",
+          "body": "On an ordinary autumn evening, a tiny black-and-white furball climbed into the car. With wide round eyes, he examined this strange new world. From that day on, DongDong had a home, and Mom had DongDong.",
+          "image_captions": ["First Meeting", "First Night at Home"]
+        },
+        {
+          "id": "trust",
+          "date": "November 2024",
+          "age": "Month 2",
+          "title": "First Trust",
+          "body": "From the nervous kitten in the carrier to the relaxed belly-up cat on Mom's lap — DongDong took a whole week to show his tummy. That was his first gift to Mom: trust without reservation.",
+          "image_captions": ["The Safest Pose", "Fits in One Hand"]
+        },
+        {
+          "id": "explorer",
+          "date": "December 2024",
+          "age": "Month 3",
+          "title": "Explorer of the New World",
+          "body": "Every inch of table surface is territory to be conquered, every small object deserves a paw test. DongDong's exploration principle is simple: climb up first, figure out how to get down later.",
+          "image_captions": ["The Desk is Mine", "Patrolling the Territory"]
+        },
+        {
+          "id": "mischief",
+          "date": "January 2025",
+          "age": "Month 4",
+          "title": "Troublemaker & Cuddlebug",
+          "body": "Caught red-pawed making trouble one second, purring in your arms the next. DongDong deeply understands cat philosophy: if you're cute enough, no crime goes unpardoned.",
+          "image_captions": ["Crime Scene", "Cuddle Mode ON"]
+        },
+        {
+          "id": "expressions",
+          "date": "February 2025",
+          "age": "Month 5",
+          "title": "A Walking Meme",
+          "body": "Open mouth is shock, squint is judgment, head tilt is curiosity — DongDong's face is a TV series where every frame is screenshot-worthy. Some fans have bookmarked this page just for his expressions.",
+          "image_captions": ["Shocked DongDong", "Dignified DongDong"]
+        },
+        {
+          "id": "playtime",
+          "date": "March 2025",
+          "age": "Month 6",
+          "title": "The Scratching Post Warrior",
+          "body": "The scratching post isn't just a nail file — it's a gym, an emotional outlet, and an art piece. Every frayed corner is proof that DongDong was here.",
+          "image_captions": ["Battle Stance", "Couch Superstar"]
+        },
+        {
+          "id": "today",
+          "date": "2025 to Present",
+          "age": "Now",
+          "title": "DongDong Today",
+          "body": "He still lies belly-up on Mom's lap, still launches at moths on the curtain, still waits by the door every evening for that familiar footsteps. Only now, it takes more towels to wrap this big furball.",
+          "image_captions": ["Still the Baby", "Already the Boss"]
+        }
+      ],
+      "epilogue": {
+        "title": "The Story Continues…",
+        "body": "DongDong is growing up nicely every day. Come visit often — or —",
+        "cta_support": "Buy him a can",
+        "cta_chat": "Say hello to DongDong",
+        "visitor_prefix": "You are visitor #",
+        "visitor_suffix": "to see DongDong",
+        "footer": "© 2026 DONGDONGCAT.ORG"
+      }
+    }
   }
 }
