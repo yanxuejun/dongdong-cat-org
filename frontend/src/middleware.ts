@@ -4,9 +4,9 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // 如果访问的是根路径 /，自动重定向到 /en
-  if (pathname === '/') {
-    return NextResponse.redirect(new URL('/en', request.url));
+  // 根路径和语言路径重定向到 scrollytelling 体验页
+  if (pathname === '/' || pathname === '/zh' || pathname === '/en') {
+    return NextResponse.redirect(new URL('/scrollytelling', request.url));
   }
 
   return NextResponse.next();

@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "../globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 // 关键：Cloudflare Pages 必须强制使用 Edge Runtime
 export const runtime = 'edge';
@@ -72,7 +69,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className="scroll-smooth">
-      <body className={`${inter.className} antialiased selection:bg-purple-100 selection:text-purple-900`}>
+      <body className="antialiased selection:bg-purple-100 selection:text-purple-900">
         {children}
       </body>
     </html>
