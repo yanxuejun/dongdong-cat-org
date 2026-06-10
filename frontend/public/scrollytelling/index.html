@@ -364,6 +364,49 @@
     }
 
     /* ================================================================
+       VISITOR BADGE
+       ================================================================ */
+    .visitor-badge {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 2rem 6vw;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .visitor-badge__dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .visitor-badge__text {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .visitor-badge__num {
+      font-weight: 700;
+      color: var(--accent);
+      font-family: var(--font-serif);
+      font-size: 1rem;
+    }
+
+    /* ================================================================
        FOOTER
        ================================================================ */
     .footer {
@@ -635,6 +678,14 @@
       </a>
     </section>
 
+    <!-- Visitor Counter -->
+    <div class="visitor-badge" id="visitorBadge">
+      <div class="visitor-badge__dot"></div>
+      <p class="visitor-badge__text">
+        You are visitor <span class="visitor-badge__num" id="visitorNum">...</span> to see DongDong
+      </p>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
       <p class="footer__text">
@@ -836,6 +887,27 @@
       tick();
       initVideos();
       videoMain.currentTime = 0;
+
+      // ================================================================
+      // VISITOR COUNTER (Cloudflare KV)
+      // ================================================================
+      (function fetchVisitorCount() {
+        const numEl = document.getElementById('visitorNum');
+        if (!numEl) return;
+
+        fetch('/api/visitor')
+          .then(res => res.json())
+          .then(data => {
+            if (data && typeof data.id === 'number') {
+              numEl.textContent = '#' + data.id;
+            } else {
+              numEl.textContent = '';
+            }
+          })
+          .catch(() => {
+            numEl.textContent = '';
+          });
+      })();
 
     })();
   </script>
