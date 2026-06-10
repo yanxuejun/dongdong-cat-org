@@ -3,14 +3,22 @@
 import { useEffect } from "react";
 import { HTML_BASE64 } from "./html";
 
+function b64ToUtf8(base64: string): string {
+  const binary = atob(base64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return new TextDecoder("utf-8").decode(bytes);
+}
+
 export default function ScrollytellingPage() {
   useEffect(() => {
-    const html = atob(HTML_BASE64);
+    const html = b64ToUtf8(HTML_BASE64);
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
 
-    // 替换 head 内容（保留 charset 和 viewport）
-    const keep = new Set(["META", "TITLE", "BASE"]);
+    // Replace head content
     document.head.innerHTML = "";
     Array.from(doc.head.childNodes).forEach((node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
@@ -26,7 +34,7 @@ export default function ScrollytellingPage() {
       }
     });
 
-    // 替换 body 内容
+    // Replace body content
     document.body.innerHTML = "";
     Array.from(doc.body.childNodes).forEach((node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
@@ -42,7 +50,7 @@ export default function ScrollytellingPage() {
       }
     });
 
-    // 重新执行 inline scripts
+    // Re-execute inline scripts
     document.body.querySelectorAll("script").forEach((oldScript) => {
       const newScript = document.createElement("script");
       if (oldScript.src) {
