@@ -4,9 +4,9 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // 如果访问的是根路径 /，自动重定向到 /zh
+  // 如果访问的是根路径 /，自动重定向到 /en
   if (pathname === '/') {
-    return NextResponse.redirect(new URL('/zh', request.url));
+    return NextResponse.redirect(new URL('/en', request.url));
   }
 
   return NextResponse.next();
